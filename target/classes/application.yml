@@ -1,7 +1,7 @@
 spring:
   cassandra:
     keyspace-name: employee_db
-    contact-points: 127.0.0.1
+    contact-points: scylladb.otms.internal
     port: 9042
     username: scylladb
     password: password
@@ -9,7 +9,7 @@ spring:
 
   data:
     redis:
-      host: 127.0.0.1
+      host: redis.otms.internal
       port: 6379
       password: ""
 
