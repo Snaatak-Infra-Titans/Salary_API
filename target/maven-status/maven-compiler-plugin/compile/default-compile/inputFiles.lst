@@ -1,0 +1,7 @@
+/home/mukesh/OT-Micro-Snatak-P18/salary-api/src/main/java/com/opstree/microservice/salary/config/OpenAPIConfig.java
+/home/mukesh/OT-Micro-Snatak-P18/salary-api/src/main/java/com/opstree/microservice/salary/model/Message.java
+/home/mukesh/OT-Micro-Snatak-P18/salary-api/src/main/java/com/opstree/microservice/salary/SalaryApplication.java
+/home/mukesh/OT-Micro-Snatak-P18/salary-api/src/main/java/com/opstree/microservice/salary/service/SpringDataSalaryService.java
+/home/mukesh/OT-Micro-Snatak-P18/salary-api/src/main/java/com/opstree/microservice/salary/contollers/SpringDataController.java
+/home/mukesh/OT-Micro-Snatak-P18/salary-api/src/main/java/com/opstree/microservice/salary/repository/EmployeeRepository.java
+/home/mukesh/OT-Micro-Snatak-P18/salary-api/src/main/java/com/opstree/microservice/salary/model/Employee.java
