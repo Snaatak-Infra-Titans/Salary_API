@@ -3,8 +3,6 @@ spring:
     keyspace-name: employee_db
     contact-points: scylladb.otms.internal
     port: 9042
-    username: scylladb
-    password: password
     local-datacenter: datacenter1
 
   data:
