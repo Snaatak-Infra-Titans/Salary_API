@@ -20,5 +20,14 @@ docker-build:
 docker-push:
 	docker push ${IMAGE_REGISTRY}/${IMAGE_NAME}:${APP_VERSION}
 
+# Read from migration.json unless DATABASE_URL is passed
+DATABASE_URL ?= $(shell [ -f migration.json ] && jq -r '.database' migration.json)
+
 run-migrations:
-	migrate -source file://migration -database "$(shell cat migration.json | jq -r '.database')" up
+	@echo "Running Salary DB Migrations..."
+	@echo "Database: $(DATABASE_URL)"
+
+	migrate \
+		-source file://migration \
+		-database "$(DATABASE_URL)" \
+		up

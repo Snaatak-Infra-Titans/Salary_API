@@ -1,3 +1,0 @@
-{
-  "database": "cassandra://scylladb.otms.internal:9042/employee_db?username=scylladb&password=password"
-}
