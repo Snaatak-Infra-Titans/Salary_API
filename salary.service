@@ -1,0 +1,46 @@
+# /etc/systemd/system/salary.service
+[Unit]
+Description=OTMS Salary API Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+
+User=ubuntu
+Group=ubuntu
+
+Environment="SCYLLA_HOST=otms.scylladb.internal"
+Environment="SCYLLA_PORT=9042"
+Environment="SCYLLA_KEYSPACE=employee_db"
+Environment="SCYLLA_DATACENTER=datacenter1"
+Environment="SERVER_PORT=8082"
+Environment="REDIS_HOST=otms.redis.internal"
+Environment="REDIS_PORT=6379"
+
+# OpenTelemetry
+Environment="OTEL_EXPORTER_OTLP_ENDPOINT=http://otms.monitoring.internal:4318"
+Environment="OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf"
+Environment="OTEL_SERVICE_NAME=salary-api"
+
+WorkingDirectory=/home/ubuntu/Salary_API
+
+# JVM Options
+Environment="JAVA_OPTS=-Xms256m -Xmx512m -javaagent:/opt/opentelemetry/opentelemetry-javaagent.jar"
+
+# Run database migrations before starting the application
+ExecStartPre=/usr/bin/make run-migrations
+
+# Start the application
+ExecStart=/bin/bash -c '/usr/bin/java $JAVA_OPTS -jar /home/ubuntu/Salary_API/target/salary-0.1.0-RELEASE.jar'
+
+SuccessExitStatus=143
+
+Restart=always
+RestartSec=5
+
+StandardOutput=append:/home/ubuntu/logs/salary.log
+StandardError=append:/home/ubuntu/logs/salary.log
+
+[Install]
+WantedBy=multi-user.target
