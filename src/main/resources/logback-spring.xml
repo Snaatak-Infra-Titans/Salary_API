@@ -22,7 +22,7 @@
                 <pattern>
                     <pattern>
                         {
-                          "service":"salary-api",
+                          "service.name":"salary-api",
                           "trace_id":"%X{trace_id}",
                           "span_id":"%X{span_id}"
                         }

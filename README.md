@@ -83,3 +83,7 @@ java -jar target/salary-0.1.0-RELEASE.jar
 ## Contact Information
 
 [Opstree Opensource](mailto:opensource@opstree.com)
+
+## OpenTelemetry
+
+Salary API exports OTLP traces, metrics and logs through the OpenTelemetry Java Agent to `otms.monitoring.internal:4318`. Existing `/actuator/prometheus` remains enabled. See `OTEL.md` for deployment and validation.

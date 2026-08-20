@@ -1,0 +1,18 @@
+[Unit]
+Description=Salary API Java Application
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/Salary_API
+EnvironmentFile=/home/ubuntu/Salary_API/otel/otel.env
+Environment=JAVA_AGENT=/opt/opentelemetry/opentelemetry-javaagent.jar
+ExecStart=/home/ubuntu/Salary_API/otel/run.sh
+Restart=on-failure
+RestartSec=5
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
