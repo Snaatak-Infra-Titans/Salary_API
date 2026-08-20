@@ -39,6 +39,8 @@ management:
       enabled: true
 
   metrics:
+    tags:
+      application: salary-api
     distribution:
       percentiles-histogram:
         http.server.requests: true
@@ -58,8 +60,3 @@ springdoc:
     path: /salary-api-docs
 
   show-actuator: true
-# Application label for Prometheus actuator metrics
-management:
-  metrics:
-    tags:
-      application: salary-api
